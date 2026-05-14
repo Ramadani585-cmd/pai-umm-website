@@ -162,8 +162,8 @@
         <div class="hidden lg:flex items-center gap-6">
           <a href="#beranda"  class="nav-link text-white/90 text-sm font-medium hover:text-white">Beranda</a>
           <a href="#tentang"  class="nav-link text-white/90 text-sm font-medium hover:text-white">Tentang</a>
-          <a href="#berita"   class="nav-link text-white/90 text-sm font-medium hover:text-white">Berita</a>
           <a href="#akademik" class="nav-link text-white/90 text-sm font-medium hover:text-white">Akademik</a>
+          <a href="#berita"   class="nav-link text-white/90 text-sm font-medium hover:text-white">Berita</a>
           <a href="#profil"   class="nav-link text-white/90 text-sm font-medium hover:text-white">Profil</a>
           <a href="#video"    class="nav-link text-white/90 text-sm font-medium hover:text-white">Video</a>
           <a href="#evaluasi" class="nav-link text-white/90 text-sm font-medium hover:text-white">Evaluasi</a>
@@ -320,15 +320,31 @@
       <div class="grid lg:grid-cols-2 gap-12 items-start">
 
         <!-- Visi -->
+          <div class="lg:col-span-2 max-w-2xl mx-auto w-full obs" data-anim="anim-fade-up">
+            <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-lg shadow-pai-100/50 border border-pai-100/50 card-hover">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pai-500 to-pai-700 flex items-center justify-center mb-6">
+                <i data-lucide="eye" style="width:28px;height:28px;color:white;"></i>
+              </div>
+              <h3 class="font-heading text-2xl font-bold text-pai-900 mb-4 text">Visi</h3>
+              <p id="visi-content" class="text-gray-600 leading-relaxed text-base">
+                Menjadi program studi Pendidikan Agama Islam terkemuka dan profesional di tingkat Internasional pada tahun 2030
+              </p>
+            </div>
+          </div>
+        
+        <!-- Tujuan -->
         <div class="obs" data-anim="anim-slide-left">
           <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-lg shadow-pai-100/50 border border-pai-100/50 card-hover">
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pai-500 to-pai-700 flex items-center justify-center mb-6">
-              <i data-lucide="eye" style="width:28px;height:28px;color:white;"></i>
+              <i data-lucide="goal" style="width:28px;height:28px;color:white;"></i>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-pai-900 mb-4">Visi</h3>
-            <p id="visi-content" class="text-gray-600 leading-relaxed text-base">
-              Menjadi program studi Pendidikan Agama Islam terkemuka dan profesional di tingkat Internasional pada tahun 2030
-            </p>
+            <h3 class="font-heading text-2xl font-bold text-pai-900 mb-4">Tujuan</h3>
+            <ul class="space-y-3 text-gray-600 text-base">
+              <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-pai-100 text-pai-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">1</span>Melahirkan lulusan sarjana yang memiliki kompetensi ilmu agama yang kreatif dan inovatif melalui berbagai pengembangan hasil karya di bidang pendidikan</li>
+              <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-pai-100 text-pai-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">2</span>Menghasilkan penelitian dan publikasi ilmiah dalam bidang pendidikan di tingkat nasional dan internasional</li> 
+              <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-pai-100 text-pai-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">3</span>Menghasilkan karya pengabdian kepada masyarakat untuk memajukan pendidikan islam</li>
+              <li class="flex gap-3"><span class="w-6 h-6 rounded-full bg-pai-100 text-pai-700 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">4</span>Menghasilkan kerjasama akademik di bidang pendidikan agama Islam dan IPTEK untuk pengembangan mutu akademik program studi Pendidikan Agama Islam</li>
+            </ul>
           </div>
         </div>
 
@@ -354,163 +370,7 @@
   </section>
   <div class="section-divider max-w-xs mx-auto"></div>
 
-  <!-- ==================== Section 2: Berita Terbaru ==================== -->
-  <section id="berita" class="py-20 sm:py-28 bg-pai-50/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 obs" data-anim="anim-fade-up">
-        <span class="inline-block px-4 py-1 rounded-full bg-pai-100 text-pai-700 text-xs font-semibold uppercase tracking-wider mb-4">Berita Terbaru</span>
-        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-pai-900">Pembahasan Materi PAI</h2>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- Card 1: Fiqih -->
-        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.1s;">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-red-300 to-pai-500 flex items-center justify-center p-6">
-              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
-                <rect x="15" y="25" width="70" height="50" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-                <line x1="25" y1="40" x2="75" y2="40" stroke="currentColor" stroke-width="1.5"/>
-                <line x1="25" y1="50" x2="60" y2="50" stroke="currentColor" stroke-width="1.5"/>
-                <line x1="25" y1="60" x2="50" y2="60" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="p-6">
-              <span class="text-xs text-pai-500 font-semibold">Fiqih</span>
-              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Fiqih Ibadah dan Fiqih Muamalah</h3>
-              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Fiqih adalah ilmu yang mempelajari hukum-hukum syariat Islam secara praktis (ahkam syar'iyyah) yang bersifat cabang (furu'), diambil dari Al-Qur'an, Sunnah, ijma', dan qiyas melalui ijtihad. Tujuannya mengatur perilaku mukallaf dalam ibadah, muamalah, dan kehidupan sehari-hari agar sesuai syariat</p>
-              <button class="read-more-btn" onclick="openModal ('modal-fiqih')">
-                Baca Selengkapnya
-                <svg xmlns="https://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline point="6 9 12 15 18 9"></polyline></svg>
-              </button>
-              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Sejarah -->
-        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.2s;">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-yellow-600 to-emerald-800 flex items-center justify-center p-6">
-              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
-                <circle cx="50" cy="35" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
-                <path d="M25 80 Q25 55 50 55 Q75 55 75 80" fill="none" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="p-6">
-              <span class="text-xs text-emerald-600 font-semibold">Sejarah</span>
-              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Sejarah Peradaban Islam</h3>
-              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Sejarah Peradaban Islam adalah studi tentang perkembangan peradaban umat islam dari masa awal kenabian sampai masa modern yang mencakup seluruh aspek, baik sosial, politik, ekonomi, budaya, ilmu pengetahuan, dan seni.</p>
-              <button class="read-more-btn" onclick="openModal('modal-sejarah')">
-                Baca Selengkapnya
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Organisasi -->
-        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-blue-500 to-green-700 flex items-center justify-center p-6">
-              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
-                <path d="M50 15 L60 40 L87 40 L65 55 L73 80 L50 65 L27 80 L35 55 L13 40 L40 40Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="p-6">
-              <span class="text-xs text-amber-600 font-semibold">Organisasi</span>
-              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Organisasi Islam di Indonesia</h3>
-              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Pembahasan hukum-hukum ibadah dalam konteks kehidupan modern, termasuk shalat, zakat, dan puasa di era digital.</p>
-              <button class="read-more-btn" onclick="openModal('modal-organisasi')">
-                Baca Selengkapnya
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Aqidah -->
-        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-emerald-500 to-blue-700 flex items-center justify-center p-6">
-              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
-                <path d="M50 15 L60 40 L87 40 L65 55 L73 80 L50 65 L27 80 L35 55 L13 40 L40 40Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="p-6">
-              <span class="text-xs text-emerald-600 font-semibold">Aqidah</span>
-              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Aqidah dan Akhlak</h3>
-              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Aqidah adalah keyakinan kokoh hati terhadap rukun iman (Allah, malaikat, kitab, rasul, akhirat, qada-qadar), sementara akhlak adalah sifat jiwa yang mendorong perbuatan spontan baik atau buruk.</p>
-              <button class="read-more-btn" onclick="openModal('modal-aqidah')">
-                Baca Selengkapnya
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 5: Ilmu Kalam -->
-        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-purple-500 to-yellow-700 flex items-center justify-center p-6">
-              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
-                <path d="M50 15 L60 40 L87 40 L65 55 L73 80 L50 65 L27 80 L35 55 L13 40 L40 40Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="p-6">
-              <span class="text-xs text-purple-600 font-semibold">Ilmu Kalam</span>
-              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Ilmu Kalam</h3>
-              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Ilmu Kalam adalah cabang ilmu yang mempelajari pertanyaan-pertanyaan tentang keimanan, khususnya dalam konteks pemahaman tentang Allah, malaikat, kitab, dan rasul.</p>
-              <button class="read-more-btn" onclick="openModal('modal-ilmu-kalam')">
-                Baca Selengkapnya
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Munafik -->
-        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-blue-500 to-yellow-400 flex items-center justify-center p-6">
-              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
-                <path d="M50 15 L60 40 L87 40 L65 55 L73 80 L50 65 L27 80 L35 55 L13 40 L40 40Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="p-6">
-              <span class="text-xs text-blue-600 font-semibold">Munafik</span>
-              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Munafik</h3>
-              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Munafik adalah orang yang berpura-pura menjadi Muslim tetapi sebenarnya tidak memiliki iman yang tulus.</p>
-              <button class="read-more-btn" onclick="openModal('modal-munafik')">
-                Baca Selengkapnya
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
-                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <div class="section-divider max-w-xs mx-auto"></div>
-
-  <!-- ==================== Section 3: Program Akademik ==================== -->
+  <!-- ==================== Section 2: Program Akademik ==================== -->
   <section id="akademik" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 obs" data-anim="anim-fade-up">
@@ -563,6 +423,158 @@
             <div class="flex flex-wrap gap-2">
               <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Literasi</span>
               <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Al Qur'an</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="section-divider max-w-xs mx-auto"></div>
+
+  <!-- ==================== Section 3: Berita Terbaru ==================== -->
+  <section id="berita" class="py-20 sm:py-28 bg-pai-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 obs" data-anim="anim-fade-up">
+        <span class="inline-block px-4 py-1 rounded-full bg-pai-100 text-pai-700 text-xs font-semibold uppercase tracking-wider mb-4">Berita Terbaru</span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-pai-900">Pembahasan Materi PAI</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Card 1: Fiqih -->
+        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.1s;">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-red-300 to-pai-500 flex items-center justify-center p-6">
+              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
+                <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>note-text</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-308.000000, -99.000000)" fill="#ffffff"> <path d="M332,107 L316,107 C315.447,107 315,107.448 315,108 C315,108.553 315.447,109 316,109 L332,109 C332.553,109 333,108.553 333,108 C333,107.448 332.553,107 332,107 L332,107 Z M338,127 C338,128.099 336.914,129.012 335.817,129.012 L311.974,129.012 C310.877,129.012 309.987,128.122 309.987,127.023 L309.987,103.165 C309.987,102.066 310.902,101 312,101 L336,101 C337.098,101 338,101.902 338,103 L338,127 L338,127 Z M336,99 L312,99 C309.806,99 308,100.969 308,103.165 L308,127.023 C308,129.22 309.779,131 311.974,131 L335.817,131 C338.012,131 340,129.196 340,127 L340,103 C340,100.804 338.194,99 336,99 L336,99 Z M332,119 L316,119 C315.447,119 315,119.448 315,120 C315,120.553 315.447,121 316,121 L332,121 C332.553,121 333,120.553 333,120 C333,119.448 332.553,119 332,119 L332,119 Z M332,113 L316,113 C315.447,113 315,113.448 315,114 C315,114.553 315.447,115 316,115 L332,115 C332.553,115 333,114.553 333,114 C333,113.448 332.553,113 332,113 L332,113 Z" id="note-text" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+              </svg>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-pai-500 font-semibold">Fiqih</span>
+              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Fiqih Ibadah dan Fiqih Muamalah</h3>
+              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Fiqih adalah ilmu yang mempelajari hukum-hukum syariat Islam secara praktis (ahkam syar'iyyah) yang bersifat cabang (furu'), diambil dari Al-Qur'an, Sunnah, ijma', dan qiyas melalui ijtihad. Tujuannya mengatur perilaku mukallaf dalam ibadah, muamalah, dan kehidupan sehari-hari agar sesuai syariat</p>
+              <button class="read-more-btn" onclick="openModal ('modal-fiqih')">
+                Baca Selengkapnya
+                <svg xmlns="https://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline point="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Sejarah -->
+        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.2s;">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-yellow-600 to-emerald-800 flex items-center justify-center p-6">
+              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M12 8V12L14.5 14.5" stroke="#ffffff" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M5.60414 5.60414L5.07381 5.07381V5.07381L5.60414 5.60414ZM4.33776 6.87052L3.58777 6.87429C3.58984 7.28556 3.92272 7.61844 4.33399 7.62051L4.33776 6.87052ZM6.87954 7.6333C7.29375 7.63539 7.63122 7.30129 7.6333 6.88708C7.63538 6.47287 7.30129 6.1354 6.88708 6.13332L6.87954 7.6333ZM5.07496 4.3212C5.07288 3.90699 4.73541 3.5729 4.3212 3.57498C3.90699 3.57706 3.5729 3.91453 3.57498 4.32874L5.07496 4.3212ZM3.82661 10.7849C3.88286 10.3745 3.59578 9.99627 3.1854 9.94002C2.77503 9.88377 2.39675 10.1708 2.3405 10.5812L3.82661 10.7849ZM18.8622 5.13777C15.042 1.31758 8.86873 1.27889 5.07381 5.07381L6.13447 6.13447C9.33358 2.93536 14.5571 2.95395 17.8016 6.19843L18.8622 5.13777ZM5.13777 18.8622C8.95796 22.6824 15.1313 22.7211 18.9262 18.9262L17.8655 17.8655C14.6664 21.0646 9.44291 21.0461 6.19843 17.8016L5.13777 18.8622ZM18.9262 18.9262C22.7211 15.1313 22.6824 8.95796 18.8622 5.13777L17.8016 6.19843C21.0461 9.44291 21.0646 14.6664 17.8655 17.8655L18.9262 18.9262ZM5.07381 5.07381L3.80743 6.34019L4.86809 7.40085L6.13447 6.13447L5.07381 5.07381ZM4.33399 7.62051L6.87954 7.6333L6.88708 6.13332L4.34153 6.12053L4.33399 7.62051ZM5.08775 6.86675L5.07496 4.3212L3.57498 4.32874L3.58777 6.87429L5.08775 6.86675ZM2.3405 10.5812C1.93907 13.5099 2.87392 16.5984 5.13777 18.8622L6.19843 17.8016C4.27785 15.881 3.48663 13.2652 3.82661 10.7849L2.3405 10.5812Z" fill="#ffffff"></path> </g></svg>
+              </svg>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-emerald-600 font-semibold">Sejarah</span>
+              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Sejarah Peradaban Islam</h3>
+              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Sejarah Peradaban Islam adalah studi tentang perkembangan peradaban umat islam dari masa awal kenabian sampai masa modern yang mencakup seluruh aspek, baik sosial, politik, ekonomi, budaya, ilmu pengetahuan, dan seni.</p>
+              <button class="read-more-btn" onclick="openModal('modal-sejarah')">
+                Baca Selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Organisasi -->
+        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-blue-500 to-green-700 flex items-center justify-center p-6">
+              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
+                <svg fill="#ffffff" version="1.1" id="_x31_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <ellipse transform="matrix(0.9659 -0.2588 0.2588 0.9659 -11.3148 8.9075)" cx="28.2" cy="47.4" rx="7.8" ry="7.8"></ellipse> <path d="M37.4,97.5h-9.5c0,0-0.5,0-0.9,0c-4.3-0.4-8-3.5-9.1-7.8l-6.5-24.2c-0.4-1.4-1.8-2.1-3-1.8c-1.4,0.4-2.1,1.8-1.8,3 l6.4,24.2c1.7,6.3,7,10.9,13.5,11.4c0.6,0.1,1.3,0.1,1.3,0.1h9.5c1.4,0,2.4-1.1,2.5-2.5C39.8,98.5,38.8,97.5,37.4,97.5z"></path> <path d="M48.6,83.9h-13c-0.3-4.9-1.1-9.8-2.3-14.7c-0.1-0.4-0.4-1.4-0.4-1.5c-1.7-6.3-7.7-10.3-14-9.7c0,0-0.8,0.1-1,0.1 c-2.3,0.6-3.7,3-3.1,5.4l6.7,24.9c0.7,2.8,3.1,4.9,6.1,5.1h0.6h15.5v17.8c0,2.7,2.1,4.9,4.9,4.9c2.7,0,4.9-2.1,4.9-4.9V88.8 c0-1.3-0.5-2.5-1.5-3.4C51.1,84.4,49.8,83.9,48.6,83.9z"></path> </g> <g> <ellipse transform="matrix(0.2588 -0.9659 0.9659 0.2588 29.3697 133.1303)" cx="101.4" cy="47.4" rx="7.8" ry="7.8"></ellipse> <path d="M90.2,97.5h9.5c0,0,0.5,0,0.9,0c4.3-0.4,8-3.5,9.1-7.8l6.5-24.2c0.4-1.4,1.8-2.1,3-1.8c1.4,0.4,2.1,1.8,1.8,3l-6.4,24.2 c-1.7,6.3-7,10.9-13.5,11.4c-0.6,0.1-1.3,0.1-1.3,0.1h-9.5c-1.4,0-2.4-1.1-2.5-2.5C87.8,98.5,88.9,97.5,90.2,97.5z"></path> <path d="M79,83.9h13c0.3-4.9,1.1-9.8,2.3-14.7c0.1-0.4,0.4-1.4,0.4-1.5c1.7-6.3,7.7-10.3,14-9.7c0,0,0.8,0.1,1,0.1 c2.3,0.6,3.7,3,3.1,5.4L106,88.4c-0.7,2.8-3.1,4.9-6.1,5.1h-0.6H83.9v17.8c0,2.7-2.1,4.9-4.9,4.9s-4.9-2.1-4.9-4.9V88.8 c0-1.3,0.5-2.5,1.5-3.4C76.5,84.4,77.8,83.9,79,83.9z"></path> </g> <rect x="38.8" y="70.8" width="50.6" height="6"></rect> </g></svg>
+              </svg>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-amber-600 font-semibold">Organisasi</span>
+              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Organisasi Islam di Indonesia</h3>
+              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Pembahasan hukum-hukum ibadah dalam konteks kehidupan modern, termasuk shalat, zakat, dan puasa di era digital.</p>
+              <button class="read-more-btn" onclick="openModal('modal-organisasi')">
+                Baca Selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Aqidah -->
+        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-emerald-500 to-blue-700 flex items-center justify-center p-6">
+              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              </svg>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-emerald-600 font-semibold">Aqidah</span>
+              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Aqidah dan Akhlak</h3>
+              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Aqidah adalah keyakinan kokoh hati terhadap rukun iman (Allah, malaikat, kitab, rasul, akhirat, qada-qadar), sementara akhlak adalah sifat jiwa yang mendorong perbuatan spontan baik atau buruk.</p>
+              <button class="read-more-btn" onclick="openModal('modal-aqidah')">
+                Baca Selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 5: Ilmu Kalam -->
+        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-purple-500 to-yellow-700 flex items-center justify-center p-6">
+              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8V16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8Z" stroke="#ffffff" stroke-width="1.5"></path> <path d="M19.8978 16H7.89778C6.96781 16 6.50282 16 6.12132 16.1022C5.08604 16.3796 4.2774 17.1883 4 18.2235" stroke="#ffffff" stroke-width="1.5"></path> <path d="M8 7H16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M8 10.5H13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M13 16V19.5309C13 19.8065 13 19.9443 12.9051 20C12.8103 20.0557 12.6806 19.9941 12.4211 19.8708L11.1789 19.2808C11.0911 19.2391 11.0472 19.2182 11 19.2182C10.9528 19.2182 10.9089 19.2391 10.8211 19.2808L9.57889 19.8708C9.31943 19.9941 9.18971 20.0557 9.09485 20C9 19.9443 9 19.8065 9 19.5309V16.45" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+              </svg>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-purple-600 font-semibold">Ilmu Kalam</span>
+              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Ilmu Kalam</h3>
+              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Ilmu Kalam adalah cabang ilmu yang mempelajari pertanyaan-pertanyaan tentang keimanan, khususnya dalam konteks pemahaman tentang Allah, malaikat, kitab, dan rasul.</p>
+              <button class="read-more-btn" onclick="openModal('modal-ilmu-kalam')">
+                Baca Selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Munafik -->
+        <div class="obs" data-anim="anim-scale-in" style="animation-delay:0.3s;">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-blue-500 to-yellow-400 flex items-center justify-center p-6">
+              <svg class="w-20 h-20 text-white/30" viewBox="0 0 100 100">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#ffffff" d="M276.44 20.63v473.227c43.08-1.258 82.452-26.44 111.833-68.043 30.15-42.69 49.18-102.418 49.18-168.57 0-66.152-19.027-125.88-49.178-168.57C358.895 47.072 319.52 21.89 276.44 20.63zM156.07 227.194c-10.05.02-20.717.973-31.93 2.67-.857 98.74 54.765 57.68 122.387 65.075-14.887-50.39-46.9-67.83-90.457-67.745zm231.46 0c10.05.02 20.717.973 31.93 2.67.855 98.74-54.767 57.68-122.39 65.075 14.887-50.39 46.903-67.83 90.46-67.745z"></path></g></svg>
+              </svg>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-blue-600 font-semibold">Munafik</span>
+              <h3 class="font-heading text-lg font-bold text-pai-900 mt-2 mb-3">Munafik</h3>
+              <p class="article-excerpt text-gray-500 text-sm leading-relaxed">Munafik adalah orang yang berpura-pura menjadi Muslim tetapi sebenarnya tidak memiliki iman yang tulus.</p>
+              <button class="read-more-btn" onclick="openModal('modal-munafik')">
+                Baca Selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="flex items-center gap-2 mt-4 text-xs text-gray-400">
+                <i data-lucide="calendar-days" style="width:12px;height:12px;"></i> 11 Mei 2026
+              </div>
             </div>
           </div>
         </div>
@@ -630,14 +642,29 @@
         <div class="obs" data-anim="anim-slide-left">
           <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
             <div class="aspect-video">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/RHnuHSFOeNw?si=a-4AgXxbqvPWybCj"
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/VYD_2fsylcM?si=093OXMeeT24Ss3hO" title="YouTube video player"
                 title="Pembelajaran PAI" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-5">
-              <h4 class="font-heading font-bold text-pai-900">Pengantar Pendidikan Agama Islam</h4>
-              <p class="text-gray-500 text-sm mt-1">Dasar-dasar dan tujuan pembelajaran PAI</p>
+              <h4 class="font-heading font-bold text-pai-900">Aqidah dan Akhlak</h4>
+              <p class="text-gray-500 text-sm mt-1">Akidah dan akhlak memiliki hubungan yang sangat erat. Akidah diibaratkan sebagai akar sebuah pohon, sedangkan akhlak adalah buah atau daun yang dihasilkannya. Semakin kuat dan kokoh akidah seseorang, semakin baik dan mulia pula akhlaknya dalam kehidupan sehari-hari</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="obs" data-anim="anim-slide-left">
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+            <div class="aspect-video">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/oWm50GqbkOY?si=9U8SACKquJq-Z8_o" title="YouTube video player"
+                title="Pembelajaran PAI" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-5">
+              <h4 class="font-heading font-bold text-pai-900">Ilmu Kalam</h4>
+              <p class="text-gray-500 text-sm mt-1">Ilmu Kalam adalah disiplin ilmu teologi Islam yang membahas akidah keimanan menggunakan argumen rasional (aqli) dan dalil naqli (Al-Qur'an dan Hadis) untuk memperkuat keyakinan dan membantah keraguan. Sering disebut Ushuluddin atau Tauhid, ilmu ini fokus pada aspek ketuhanan, sifat-sifat Allah, serta perbuatan rasul dan manusia</p>
             </div>
           </div>
         </div>
@@ -645,14 +672,29 @@
         <div class="obs" data-anim="anim-slide-right">
           <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
             <div class="aspect-video">
-              <iframe class="w-full h-full" src="https://www.youtube.com/embed/ydE9TD6vhE8?si=7_NccECX2d2RW7L5"
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/tyhTbS3zw0c?si=8pTyrzR0okUgAU4y" title="YouTube video player"
                 title="Metode Pembelajaran PAI" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-5">
-              <h4 class="font-heading font-bold text-pai-900">Metode Pembelajaran PAI Modern</h4>
-              <p class="text-gray-500 text-sm mt-1">Inovasi dalam pengajaran Pendidikan Agama Islam</p>
+              <h4 class="font-heading font-bold text-pai-900">Sejarah Peradaban Islam | Daulah Umayyah</h4>
+              <p class="text-gray-500 text-sm mt-1">Daulah Umayyah (661–750 M) adalah kekhalifahan Islam pertama setelah masa Khulafaur Rasyidin. Didirikan oleh Muawiyah bin Abu Sufyan di Damaskus, dinasti ini terkenal dengan perluasan wilayah yang masif hingga ke Spanyol dan India, serta kemajuan pesat dalam administrasi pemerintahan</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="obs" data-anim="anim-slide-right">
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100">
+            <div class="aspect-video">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/M9L0NuVZ8GM?si=T5zMvWJBrD8mEhHu"
+                title="Metode Pembelajaran PAI" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-5">
+              <h4 class="font-heading font-bold text-pai-900">Fiqih Muamalah | Fiqih Kewarisan</h4>
+              <p class="text-gray-500 text-sm mt-1">Fiqih kewarisan (Ilmu Faraidh / Mawaris) adalah cabang ilmu syariah yang mengatur tata cara pengalihan harta peninggalan dari seseorang yang telah meninggal dunia kepada keluarga atau ahli waris yang masih hidup, mencakup penentuan siapa yang berhak menerima dan berapa besaran porsi pastinya.</p>
             </div>
           </div>
         </div>
@@ -876,7 +918,7 @@
               </div>
               <div>
                 <h4 class="font-semibold text-pai-900 text-sm">Alamat</h4>
-                <p id="display-address" class="text-gray-500 text-sm">Jl. Raya Tlogomas No.246, Malang, Jawa Timur 65144</p>
+                <p id="display-address" class="text-gray-500 text-sm">Jl. Karyawiguna No.kav.2, Babatan, Tegalgondo, Kec. Karang Ploso, Kota Malang, Jawa Timur 65152</p>
               </div>
             </div>
             <div class="flex gap-4 items-start bg-white rounded-2xl p-5 border border-gray-100 card-hover">
@@ -899,15 +941,16 @@
             </div>
             <!-- Map -->
             <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4692.699070560091!2d112.59478997572278!3d-7.921516892102033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7881f5405daac1%3A0xb39e4847109109e4!2sUniversity%20of%20Muhammadiyah%20Malang%20Campus%20III!5e1!3m2!1sen!2sid!4v1778512693683!5m2!1sen!2sid" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4692.746908907788!2d112.5912734757228!3d-7.917318092106102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788109a5eaa54f%3A0x213e0919e2de8e7!2sKos%20Putra%20UWAIS%20AL-QARNI!5e1!3m2!1sid!2sid!4v1778766525612!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
 
         <!-- Contact Form -->
         <div class="obs" data-anim="anim-slide-right">
+          <form action="https://formspree.io/f/mjgldogj" method="POST" id="contact-form" class="space-y-4"></form>
           <form id="contact-form" class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100" onsubmit="handleSubmit(event)">
-            <h3 class="font-heading text-xl font-bold text-pai-900 mb-6">Kirim Pesan (Mohon maaf masih dalam perbaikan)</h3>
+            <h3 class="font-heading text-xl font-bold text-pai-900 mb-6">Kirim Pesan</h3>
             <div class="space-y-4">
               <div>
                 <label for="c-name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
@@ -948,6 +991,7 @@
             <div id="form-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center font-medium">
               ❌ Gagal mengirim. Silakan coba lagi.
             </div>
+            <input type="text" name="_gotcha" style="display:none">
           </form>
         </div>
 
@@ -1161,6 +1205,62 @@
     </div>
   </div>
 </div>
+<!-- ==================== Formsspree Contact Form ==================== -->
+<script>
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('submit-text');
+    const spinner = document.getElementById('submit-spinner');
+    const iconSend = btn.querySelector('[data-lucide="send"]');
+    const successEl = document.getElementById('forms-success');
+    const errorEl = document.getElementById('forms-error');
+
+    // Reset status
+    successEl.classList.add('hidden');
+    errorEl.classList.add('hidden');
+
+    // Loading state
+    btn.disabled = true;
+    btnText.textContent = 'Mengirim...';
+    spinner.classList.remove('hidden');
+    if (iconSend) iconSend.style.display = 'none';
+
+    const form = event.target;
+    const data = new FormData(form);
+
+    try {
+      // Ganti "XXXXXXXX" dengan endpoint ID dari akun Formspree Anda
+      const response = await fetch('https://formspree.io/f/mjgldogj', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        successEl.classList.remove('hidden');
+        form.reset();
+      } else {
+        const result = await response.json();
+        console.error('Formspree error:', result);
+        errorEl.classList.remove('hidden');
+      }
+    }catch (err) {
+      console.error('Network error:', err);
+      errorEl.classList.remove('hidden');
+    } finally {
+      // Reset button state
+      btn.disabled = false;
+      btnText.textContent = 'Kirim Pesan';
+      spinner.classList.add('hidden');
+      if (iconSend) iconSend.style.display = '';
+    }
+  }
+</script>
+
 <!-- ==================== Read More JavaScript ==================== -->
 <script>
   function openModal(id) {
@@ -1199,78 +1299,6 @@
 
 <!-- External JavaScript -->
 <script src="script.js"></script>
-
-<!-- Audio Player -->
-<audio id="bg-music" loop preload="auto">
-  <source src="icon/Sang Surya UMM.mp3 " type="audio/mpeg">
-</audio>
-
-<!-- Tombol kontrol musik -->
-<button
-  id="music-btn"
-  class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-pai-600 text-white shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-pai-500 hover:scale-110 hover:shadow-xl"
-  aria-label="Toggle musik"
->
-  <i id="music-icon" data-lucide="volume-2" style="width:20px;height:20px;"></i>
-</button>
-
-<script>
-  const audio = document.getElementById('bg-music');
-  const btn = document.getElementById('music-btn');
-  const icon = document.getElementById('music-icon');
-  let isPlaying = false;
-
-  // Set volume (0.0 - 1.0)
-  audio.volume = 0.1;
-
-  function setIcon(playing) {
-    icon.setAttribute('data-lucide', playing ? 'volume-2' : 'volume-x');
-    lucide.createIcons(); // refresh icon lucide
-  }
-
-  function tryAutoplay() {
-    audio.play()
-      .then(() => {
-        isPlaying = true;
-        setIcon(true);
-      })
-      .catch(() => {
-        // Browser blokir autoplay — tunggu interaksi pertama user
-        isPlaying = false;
-        setIcon(false);
-
-        const startOnInteraction = () => {
-          audio.play().then(() => {
-            isPlaying = true;
-            setIcon(true);
-          });
-          document.removeEventListener('click', startOnInteraction);
-          document.removeEventListener('scroll', startOnInteraction);
-          document.removeEventListener('keydown', startOnInteraction);
-        };
-
-        document.addEventListener('click', startOnInteraction);
-        document.addEventListener('scroll', startOnInteraction);
-        document.addEventListener('keydown', startOnInteraction);
-      });
-  }
-
-  // Tombol play/pause manual
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-    } else {
-      audio.play();
-      isPlaying = true;
-    }
-    setIcon(isPlaying);
-  });
-
-  // Jalankan saat halaman siap
-  window.addEventListener('load', tryAutoplay);
-</script>
 
 </body>
 </html>
