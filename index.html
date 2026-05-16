@@ -165,6 +165,7 @@
           <a href="#akademik" class="nav-link text-white/90 text-sm font-medium hover:text-white">Akademik</a>
           <a href="#profil"   class="nav-link text-white/90 text-sm font-medium hover:text-white">Profil</a>
           <a href="#berita"   class="nav-link text-white/90 text-sm font-medium hover:text-white">Berita</a>
+          <a href="#kalkulator" class="nav-link text-white/90 text-sm font-medium hover:text-white">Kalkulator</a>
           <a href="#video"    class="nav-link text-white/90 text-sm font-medium hover:text-white">Video</a>
           <a href="#evaluasi" class="nav-link text-white/90 text-sm font-medium hover:text-white">Evaluasi</a>
           <a href="#kontak"   class="nav-link text-white/90 text-sm font-medium hover:text-white">Kontak</a>
@@ -186,6 +187,7 @@
         <a href="#akademik" onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Akademik</a>
         <a href="#profil"   onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Profil</a>
         <a href="#berita"   onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Berita</a>
+        <a href="#kalkulator" onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Kalkulator</a>
         <a href="#video"    onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Video</a>
         <a href="#evaluasi" onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Evaluasi</a>
         <a href="#kontak"   onclick="closeMobile()" class="block py-2 px-4 text-white/90 rounded-lg hover:bg-white/10 text-sm">Kontak</a>
@@ -201,7 +203,7 @@
   <div class="absolute inset-0 z-0">
     <img 
       src="Icon/UMM LAPANGAN MALAM.jpeg" 
-      alt="" 
+      alt="Lapangan UMM Helipad" 
       class="w-full h-full object-cover object-center"
     />
   </div>
@@ -630,7 +632,277 @@
   </section>
   <div class="section-divider max-w-xs mx-auto"></div>
 
-  <!-- ==================== Section 5: Video ==================== -->
+  <!-- ==================== Kalkulator Warisan ==================== -->
+  <section id="kalkulator" class="py-20 sm:py-28 relative overflow-hidden" style="scroll-margin-top:72px;background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 50%,#1e40af 100%);">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-10 right-10 w-72 h-72 rounded-full border border-white/5 anim-float"></div>
+      <div class="absolute bottom-10 left-10 w-96 h-96 rounded-full border border-white/5 anim-float" style="animation-delay:1.5s;"></div>
+      <svg class="absolute top-16 left-16 w-24 h-24 text-white/5" viewBox="0 0 100 100">
+        <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-12 obs" data-anim="anim-fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-wider mb-5">⚖️ Alat Bantu Fiqih</span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Kalkulator Waris Islam</h2>
+        <p class="text-white/65 text-base max-w-2xl mx-auto leading-relaxed">Klik node ahli waris pada <strong class="text-white/90">Diagram Silsilah</strong> untuk mengisi jumlah, lalu tekan <strong class="text-white/90">Hitung Warisan</strong></p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8 items-start">
+
+        <!-- ===== INPUT PANEL ===== -->
+        <div class="lg:col-span-2 obs" data-anim="anim-slide-left">
+          <div class="bg-white rounded-3xl overflow-hidden shadow-2xl">
+
+            <!-- Card Header -->
+            <div class="bg-gradient-to-r from-pai-700 to-pai-600 px-7 py-6">
+              <div class="flex items-center gap-3 mb-1">
+                <div class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="m15 10 5 5-5 5"/></svg>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-white">Data Pewaris</h3>
+              </div>
+              <p class="text-white/70 text-sm">Isi informasi harta & susunan ahli waris</p>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-6 space-y-5">
+
+              <!-- Harta Warisan -->
+              <div>
+                <label class="block text-xs font-700 text-pai-800 mb-1.5 uppercase tracking-wide">💰 Total Harta Warisan (Rp)</label>
+                <div class="relative">
+                  <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-semibold">Rp</span>
+                  <input type="number" id="hartaWarisan" min="0" placeholder="Contoh: 500000000"
+                    class="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+                <p class="text-xs text-gray-400 mt-1">Harta bersih setelah hutang & biaya pemakaman</p>
+              </div>
+
+              <!-- Divider -->
+              <div class="border-t border-dashed border-gray-200"></div>
+              <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">👥 Susunan Ahli Waris</p>
+
+              <!-- Pasangan -->
+              <div>
+                <label class="block text-xs font-semibold text-gray-700 mb-1.5">Pasangan Pewaris</label>
+                <select id="pasangan" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800 bg-white">
+                  <option value="tidak_ada">— Tidak Ada —</option>
+                  <option value="suami">Suami / Duda (Pewaris wanita)</option>
+                  <option value="istri">Istri / Janda (Pewaris pria)</option>
+                </select>
+              </div>
+
+              <!-- Anak -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Anak Laki-laki</label>
+                  <input type="number" id="jumlahAnakLaki" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Anak Perempuan</label>
+                  <input type="number" id="jumlahAnakPerempuan" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+              </div>
+
+              <!-- Orang Tua -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Ayah Kandung</label>
+                  <select id="statusAyah" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800 bg-white">
+                    <option value="tidak_ada">Tidak Ada</option>
+                    <option value="ada">Masih Hidup</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Ibu Kandung</label>
+                  <select id="statusIbu" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800 bg-white">
+                    <option value="tidak_ada">Tidak Ada</option>
+                    <option value="ada">Masih Hidup</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Saudara -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Saudara Laki-laki Kandung</label>
+                  <input type="number" id="jumlahSaudaraLakiKandung" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Saudara Perempuan Kandung</label>
+                  <input type="number" id="jumlahSaudaraPerempuanKandung" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Saudara Laki-laki Seibu</label>
+                  <input type="number" id="jumlahSaudaraLakiSeibu" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Saudara Perempuan Seibu</label>
+                  <input type="number" id="jumlahSaudaraPerempuanSeibu" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+              </div>
+
+              <!-- Saudara Seayah -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Saudara Laki-laki Seayah</label>
+                  <input type="number" id="jumlahSaudaraLakiSeayah" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-700 mb-1.5">Saudara Perempuan Seayah</label>
+                  <input type="number" id="jumlahSaudaraPerempuanSeayah" min="0" value="0"
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-pai-500 focus:ring-2 focus:ring-pai-100 transition-all text-gray-800">
+                </div>
+              </div>
+
+              <!-- Info Singkat -->
+              <div class="bg-pai-50 border border-pai-100 rounded-xl p-3 text-xs text-pai-700 leading-relaxed">
+                <strong>ℹ️ Catatan:</strong> Saudara hanya mendapat warisan jika <em>tidak ada</em> anak/cucu maupun ayah kandung. Saudara kandung menghalangi saudara seayah dan seibu.
+              </div>
+
+              <!-- Hitung Button -->
+              <button onclick="hitungWarisan()"
+                class="w-full py-3.5 bg-gradient-to-r from-pai-700 to-pai-600 hover:from-pai-800 hover:to-pai-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-pai-900/30 hover:shadow-pai-900/50 hover:-translate-y-0.5 flex items-center justify-center gap-2 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+                Hitung Pembagian Warisan
+              </button>
+
+              <!-- Reset -->
+              <button onclick="resetKalkulator()"
+                class="w-full py-2.5 border-2 border-gray-200 text-gray-500 font-semibold rounded-xl hover:border-gray-300 hover:text-gray-700 transition-all text-sm">
+                Reset Form
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== HASIL PANEL ===== -->
+        <div class="lg:col-span-3 obs" data-anim="anim-slide-right">
+
+          <!-- Placeholder saat belum dihitung -->
+          <div id="placeholder-waris" class="flex flex-col items-center justify-center py-20 text-center">
+            <div class="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center mb-6 text-5xl anim-float">⚖️</div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-3">Siap Menghitung</h3>
+            <p class="text-white/55 text-sm max-w-xs leading-relaxed">Isi data di sebelah kiri lalu tekan tombol <span class="text-white/80 font-semibold">Hitung Pembagian Warisan</span></p>
+            <div class="mt-8 grid grid-cols-3 gap-4 w-full max-w-sm">
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p class="text-2xl mb-1">📖</p>
+                <p class="text-white/60 text-xs">QS. An-Nisa' 11</p>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p class="text-2xl mb-1">⚖️</p>
+                <p class="text-white/60 text-xs">KHI Pasal 174–193</p>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p class="text-2xl mb-1">🕌</p>
+                <p class="text-white/60 text-xs">Ilmu Faraidh</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hasil Perhitungan -->
+          <div id="hasilWarisPanel" class="hidden space-y-5">
+
+            <!-- Summary Card -->
+            <div class="bg-white rounded-3xl p-6 shadow-2xl">
+              <div class="flex items-center justify-between mb-5">
+                <h4 class="font-heading text-lg font-bold text-pai-900 flex items-center gap-2">
+                  <span class="w-7 h-7 rounded-lg bg-pai-100 flex items-center justify-center text-sm">📊</span>
+                  Hasil Perhitungan
+                </h4>
+                <span id="badge-total-ahli" class="text-xs font-semibold bg-pai-100 text-pai-700 px-3 py-1 rounded-full"></span>
+              </div>
+
+              <!-- Total Harta -->
+              <div class="bg-gradient-to-r from-pai-50 to-blue-50 rounded-2xl p-4 mb-5 border border-pai-100">
+                <p class="text-xs text-pai-600 font-semibold uppercase tracking-wide mb-1">Total Harta Warisan</p>
+                <p id="total-harta-display" class="font-heading text-2xl font-bold text-pai-900"></p>
+              </div>
+
+              <!-- Daftar Ahli Waris -->
+              <div id="detailHasil" class="space-y-3"></div>
+
+              <!-- Sisa / Kekurangan -->
+              <div id="info-sisa" class="hidden mt-4 p-3 rounded-xl text-xs font-medium"></div>
+
+              <!-- Catatan -->
+              <div class="mt-5 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                <p class="text-amber-800 text-xs leading-relaxed font-medium">
+                  ⚠️ <strong>Catatan Hukum:</strong> Perhitungan ini merupakan estimasi berdasarkan ketentuan dasar Ilmu Faraidh & KHI. Harta warisan harus bersih dari hutang, wasiat (maks. 1/3), dan biaya pemakaman. Untuk kepastian hukum, konsultasikan dengan Pengadilan Agama atau ulama ahli waris.
+                </p>
+              </div>
+            </div>
+
+            <!-- Dasar Hukum Card -->
+            <div id="dasar-hukum-card" class="hidden bg-white/10 backdrop-blur border border-white/20 rounded-3xl p-6">
+              <h4 class="text-white font-bold text-sm mb-4 flex items-center gap-2">
+                <span class="text-base">📜</span> Dasar Hukum yang Berlaku
+              </h4>
+              <div id="dasar-hukum-list" class="space-y-2"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tabel Referensi -->
+      <div class="mt-14 obs" data-anim="anim-fade-up">
+        <div class="bg-white/8 backdrop-blur border border-white/15 rounded-3xl p-7">
+          <h4 class="font-heading text-white font-bold text-lg mb-5 flex items-center gap-2">
+            <span>📋</span> Referensi Bagian Waris (KHI)
+          </h4>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="border-b border-white/20">
+                  <th class="text-white/70 font-semibold pb-3 pr-4 text-xs uppercase tracking-wide">Ahli Waris</th>
+                  <th class="text-white/70 font-semibold pb-3 pr-4 text-xs uppercase tracking-wide">Kondisi</th>
+                  <th class="text-white/70 font-semibold pb-3 text-xs uppercase tracking-wide">Bagian</th>
+                  <th class="text-white/70 font-semibold pb-3 text-xs uppercase tracking-wide pl-4">Dasar</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/10">
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Suami / Duda</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tidak ada anak/cucu</td><td class="py-2.5 text-yellow-400 font-bold">½</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 179</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Suami / Duda</td><td class="py-2.5 pr-4 text-white/60 text-xs">Ada anak/cucu</td><td class="py-2.5 text-yellow-400 font-bold">¼</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 179</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Istri / Janda</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tidak ada anak/cucu</td><td class="py-2.5 text-yellow-400 font-bold">¼</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 180</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Istri / Janda</td><td class="py-2.5 pr-4 text-white/60 text-xs">Ada anak/cucu</td><td class="py-2.5 text-yellow-400 font-bold">⅛</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 180</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Anak Perempuan</td><td class="py-2.5 pr-4 text-white/60 text-xs">Sendirian, tanpa anak laki</td><td class="py-2.5 text-yellow-400 font-bold">½</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI 176</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Anak Perempuan</td><td class="py-2.5 pr-4 text-white/60 text-xs">≥2, tanpa anak laki</td><td class="py-2.5 text-yellow-400 font-bold">⅔</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI 176</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Anak Laki-laki</td><td class="py-2.5 pr-4 text-white/60 text-xs">Sendirian / bersama anak lain</td><td class="py-2.5 text-amber-400 font-bold">Ashabah (2:1)</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Ayah Kandung</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tidak ada anak/cucu</td><td class="py-2.5 text-yellow-400 font-bold">⅓</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI 177</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Ayah Kandung</td><td class="py-2.5 pr-4 text-white/60 text-xs">Ada anak/cucu</td><td class="py-2.5 text-yellow-400 font-bold">⅙</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI 177</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Ibu Kandung</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tidak ada anak/cucu, tidak ada ≥2 saudara</td><td class="py-2.5 text-yellow-400 font-bold">⅓</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI 178</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Ibu Kandung</td><td class="py-2.5 pr-4 text-white/60 text-xs">Ada anak/cucu atau ≥2 saudara</td><td class="py-2.5 text-yellow-400 font-bold">⅙</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 11, KHI 178</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Saudara Seibu (1)</td><td class="py-2.5 pr-4 text-white/60 text-xs">Sendirian, tanpa anak & ayah</td><td class="py-2.5 text-yellow-400 font-bold">⅙</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 181</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Saudara Seibu (≥2)</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tanpa anak & ayah</td><td class="py-2.5 text-yellow-400 font-bold">⅓ bersama</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 181</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Saudara Perempuan Kandung (1)</td><td class="py-2.5 pr-4 text-white/60 text-xs">Sendirian, tanpa anak & ayah</td><td class="py-2.5 text-yellow-400 font-bold">½</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 182</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Saudara Perempuan Kandung (≥2)</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tanpa anak & ayah</td><td class="py-2.5 text-yellow-400 font-bold">⅔ bersama</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 182</td></tr>
+                <tr><td class="py-2.5 pr-4 text-white/90 font-medium">Saudara Laki-laki Kandung/Seayah</td><td class="py-2.5 pr-4 text-white/60 text-xs">Tanpa anak & ayah; bersama saudara perempuan</td><td class="py-2.5 text-yellow-400 font-bold">Ashabah (2:1)</td><td class="py-2.5 pl-4 text-white/50 text-xs">An-Nisa' 12, KHI 182</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Section 6: Video ==================== -->
   <section id="video" class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 obs" data-anim="anim-fade-up">

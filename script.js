@@ -267,6 +267,362 @@ if (window.dataSdk) {
   });
 }
 
+// ==================== Kalkulator Warisan ====================
+function formatRupiah(n) {
+  return 'Rp ' + Math.round(n).toLocaleString('id-ID');
+}
+
+function hitungWarisan() {
+  const hartaInput = parseFloat(document.getElementById('hartaWarisan').value);
+  if (!hartaInput || hartaInput <= 0) {
+    showToast('Masukkan jumlah harta warisan terlebih dahulu!', 'error');
+    return;
+  }
+
+  const pasangan           = document.getElementById('pasangan').value;
+  const anakLaki           = parseInt(document.getElementById('jumlahAnakLaki').value) || 0;
+  const anakPerempuan      = parseInt(document.getElementById('jumlahAnakPerempuan').value) || 0;
+  const statusAyah         = document.getElementById('statusAyah').value;
+  const statusIbu          = document.getElementById('statusIbu').value;
+  const saudaraLakiKandung = parseInt(document.getElementById('jumlahSaudaraLakiKandung').value) || 0;
+  const saudaraPercKandung = parseInt(document.getElementById('jumlahSaudaraPerempuanKandung').value) || 0;
+  const saudaraLakiSeibu   = parseInt(document.getElementById('jumlahSaudaraLakiSeibu').value) || 0;
+  const saudaraPercSeibu   = parseInt(document.getElementById('jumlahSaudaraPerempuanSeibu').value) || 0;
+  const saudaraLakiSeayah  = parseInt(document.getElementById('jumlahSaudaraLakiSeayah')?.value) || 0;
+  const saudaraPercSeayah  = parseInt(document.getElementById('jumlahSaudaraPerempuanSeayah')?.value) || 0;
+
+  const adaAnak  = (anakLaki + anakPerempuan) > 0;
+  const adaAyah  = statusAyah === 'ada';
+  const adaIbu   = statusIbu === 'ada';
+  const totalSaudaraKandung = saudaraLakiKandung + saudaraPercKandung;
+  const totalSaudaraSeibu   = saudaraLakiSeibu + saudaraPercSeibu;
+  const totalSaudaraSeayah  = saudaraLakiSeayah + saudaraPercSeayah;
+  const totalSaudaraSemua   = totalSaudaraKandung + totalSaudaraSeibu + totalSaudaraSeayah;
+
+  // State variables
+  let sisa = hartaInput;
+  const hasil = [];
+  const dasarHukum = new Set();
+
+  // ─── Helper: add ahli waris entry ───
+  function addHasil(label, fraksi, amount, dasar, colorClass) {
+    hasil.push({ label, fraksi, amount, dasar, colorClass: colorClass || 'blue' });
+    if (dasar) dasar.forEach(d => dasarHukum.add(d));
+  }
+
+  // ─── 1. Pasangan ───
+  if (pasangan === 'suami') {
+    const fraksi = adaAnak ? 1/4 : 1/2;
+    const label  = adaAnak ? '¼' : '½';
+    const bayar  = hartaInput * fraksi;
+    addHasil('Suami / Duda', label, bayar, ['An-Nisa\' 12', 'KHI Pasal 179'], 'blue');
+    sisa -= bayar;
+  } else if (pasangan === 'istri') {
+    const fraksi = adaAnak ? 1/8 : 1/4;
+    const label  = adaAnak ? '⅛' : '¼';
+    const bayar  = hartaInput * fraksi;
+    addHasil('Istri / Janda', label, bayar, ['An-Nisa\' 12', 'KHI Pasal 180'], 'blue');
+    sisa -= bayar;
+  }
+
+  // ─── 2. Ayah & Ibu (fixed portions first) ───
+  let ayahIsAshabah = false;
+  if (adaAyah) {
+    if (adaAnak) {
+      const bayar = hartaInput * (1/6);
+      addHasil('Ayah Kandung', '⅙', bayar, ['An-Nisa\' 11', 'KHI Pasal 177'], 'green');
+      sisa -= bayar;
+    } else {
+      // Ayah gets 1/3 or becomes ashabah — defer to ashabah calculation
+      ayahIsAshabah = true;
+    }
+  }
+
+  if (adaIbu) {
+    const adaDuaAtauLebihSaudara = totalSaudaraSemua >= 2;
+    if (adaAnak || adaDuaAtauLebihSaudara) {
+      const bayar = hartaInput * (1/6);
+      addHasil('Ibu Kandung', '⅙', bayar, ['An-Nisa\' 11', 'KHI Pasal 178'], 'green');
+      sisa -= bayar;
+    } else {
+      // No anak, no ≥2 saudara
+      if (adaAyah) {
+        // Ibu gets 1/3 of sisa (after spouse)
+        const bayar = sisa * (1/3);
+        addHasil('Ibu Kandung', '⅓ dari sisa', bayar, ['An-Nisa\' 11', 'KHI Pasal 178'], 'green');
+        sisa -= bayar;
+      } else {
+        const bayar = hartaInput * (1/3);
+        addHasil('Ibu Kandung', '⅓', bayar, ['An-Nisa\' 11', 'KHI Pasal 178'], 'green');
+        sisa -= bayar;
+      }
+    }
+  }
+
+  // ─── 3. Anak (fixed portions for perempuan, then ashabah) ───
+  if (adaAnak) {
+    if (anakLaki > 0) {
+      // Anak laki + perempuan → ashabah with 2:1 ratio
+      const unitLaki = 2, unitPerempuan = 1;
+      const totalUnits = (anakLaki * unitLaki) + (anakPerempuan * unitPerempuan);
+      const perUnit = sisa / totalUnits;
+
+      if (anakLaki > 0) {
+        const totalLaki = perUnit * unitLaki * anakLaki;
+        const perOrangLaki = totalLaki / anakLaki;
+        addHasil(
+          `Anak Laki-laki (${anakLaki} orang)`,
+          `Ashabah (2:1)`,
+          totalLaki,
+          ['An-Nisa\' 11', 'KHI Pasal 176', 'Hadits Rasulullah'],
+          'amber'
+        );
+      }
+      if (anakPerempuan > 0) {
+        const totalPerempuan = perUnit * unitPerempuan * anakPerempuan;
+        addHasil(
+          `Anak Perempuan (${anakPerempuan} orang)`,
+          `Ashabah (2:1)`,
+          totalPerempuan,
+          ['An-Nisa\' 11', 'KHI Pasal 176'],
+          'pink'
+        );
+      }
+      sisa = 0;
+    } else {
+      // Hanya anak perempuan
+      let fraksiTotal, label;
+      if (anakPerempuan === 1) {
+        fraksiTotal = 1/2; label = '½';
+      } else {
+        fraksiTotal = 2/3; label = '⅔';
+      }
+      const bayar = hartaInput * fraksiTotal;
+      addHasil(
+        `Anak Perempuan (${anakPerempuan} orang)`,
+        label,
+        bayar,
+        ['An-Nisa\' 11', 'KHI Pasal 176'],
+        'pink'
+      );
+      sisa -= bayar;
+    }
+  }
+
+  // ─── 4. Ayah ashabah (no anak) ───
+  if (ayahIsAshabah && !adaAnak) {
+    // Ayah gets what's left if no siblings, else 1/3 fixed first
+    const adaSaudaraKandungAtauSeayah = (totalSaudaraKandung + totalSaudaraSeayah) > 0;
+    // When no children, ayah gets 1/3 fixed + potentially blocks siblings
+    const bayar = sisa; // Ayah takes all remaining (he blocks siblings)
+    addHasil('Ayah Kandung', 'Sisa (Ashabah)', bayar, ['An-Nisa\' 11', 'KHI Pasal 177'], 'green');
+    sisa = 0;
+  }
+
+  // ─── 5. Saudara (only if no anak dan no ayah kandung) ───
+  if (!adaAnak && !adaAyah && sisa > 0) {
+    // Saudara seibu
+    if (totalSaudaraSeibu > 0) {
+      let fraksiSeibu, labelSeibu;
+      if (totalSaudaraSeibu === 1) {
+        fraksiSeibu = 1/6; labelSeibu = '⅙';
+      } else {
+        fraksiSeibu = 1/3; labelSeibu = '⅓';
+      }
+      const bayarSeibu = hartaInput * fraksiSeibu;
+      const namaSeibu = [];
+      if (saudaraLakiSeibu > 0) namaSeibu.push(`${saudaraLakiSeibu} laki-laki`);
+      if (saudaraPercSeibu > 0) namaSeibu.push(`${saudaraPercSeibu} perempuan`);
+      addHasil(
+        `Saudara Seibu (${namaSeibu.join(', ')})`,
+        labelSeibu,
+        bayarSeibu,
+        ['An-Nisa\' 12', 'KHI Pasal 181'],
+        'purple'
+      );
+      sisa -= bayarSeibu;
+    }
+
+    // Saudara kandung — ashabah
+    if ((saudaraLakiKandung + saudaraPercKandung) > 0) {
+      if (saudaraLakiKandung > 0) {
+        // With male siblings → ashabah 2:1
+        const totalUnits = (saudaraLakiKandung * 2) + saudaraPercKandung;
+        const perUnit = sisa / totalUnits;
+        const laki = perUnit * 2 * saudaraLakiKandung;
+        addHasil(
+          `Saudara Laki-laki Kandung (${saudaraLakiKandung} orang)`,
+          'Ashabah (2:1)', laki,
+          ['An-Nisa\' 12', 'KHI Pasal 182'],
+          'amber'
+        );
+        if (saudaraPercKandung > 0) {
+          const perc = perUnit * saudaraPercKandung;
+          addHasil(
+            `Saudara Perempuan Kandung (${saudaraPercKandung} orang)`,
+            'Ashabah (2:1)', perc,
+            ['An-Nisa\' 12', 'KHI Pasal 182'],
+            'pink'
+          );
+        }
+        sisa = 0;
+      } else {
+        // Hanya saudara perempuan kandung
+        let fraksi, label;
+        if (saudaraPercKandung === 1) {
+          fraksi = 1/2; label = '½';
+        } else {
+          fraksi = 2/3; label = '⅔';
+        }
+        const bayar = sisa * fraksi;
+        addHasil(
+          `Saudara Perempuan Kandung (${saudaraPercKandung} orang)`,
+          label, bayar,
+          ['An-Nisa\' 12', 'KHI Pasal 182'],
+          'pink'
+        );
+        sisa -= bayar;
+      }
+    } else if (saudaraLakiKandung === 0 && saudaraPercKandung === 0) {
+      // Saudara seayah (only if no kandung)
+      if (totalSaudaraSeayah > 0) {
+        if (saudaraLakiSeayah > 0) {
+          const totalUnits = (saudaraLakiSeayah * 2) + saudaraPercSeayah;
+          const perUnit = sisa / totalUnits;
+          const laki = perUnit * 2 * saudaraLakiSeayah;
+          addHasil(
+            `Saudara Laki-laki Seayah (${saudaraLakiSeayah} orang)`,
+            'Ashabah (2:1)', laki,
+            ['An-Nisa\' 12', 'KHI Pasal 182'],
+            'amber'
+          );
+          if (saudaraPercSeayah > 0) {
+            const perc = perUnit * saudaraPercSeayah;
+            addHasil(
+              `Saudara Perempuan Seayah (${saudaraPercSeayah} orang)`,
+              'Ashabah (2:1)', perc,
+              ['An-Nisa\' 12', 'KHI Pasal 182'],
+              'pink'
+            );
+          }
+          sisa = 0;
+        } else {
+          let fraksi, label;
+          if (saudaraPercSeayah === 1) {
+            fraksi = 1/2; label = '½';
+          } else {
+            fraksi = 2/3; label = '⅔';
+          }
+          const bayar = sisa * fraksi;
+          addHasil(
+            `Saudara Perempuan Seayah (${saudaraPercSeayah} orang)`,
+            label, bayar,
+            ['An-Nisa\' 12', 'KHI Pasal 182'],
+            'pink'
+          );
+          sisa -= bayar;
+        }
+      }
+    }
+  }
+
+  // ─── Render results ───
+  const colorMap = {
+    blue:   { bg: 'bg-blue-50',   border: 'border-blue-200',   text: 'text-blue-700',   badge: 'bg-blue-100 text-blue-700' },
+    green:  { bg: 'bg-green-50',  border: 'border-green-200',  text: 'text-green-700',  badge: 'bg-green-100 text-green-700' },
+    pink:   { bg: 'bg-pink-50',   border: 'border-pink-200',   text: 'text-pink-700',   badge: 'bg-pink-100 text-pink-700' },
+    amber:  { bg: 'bg-amber-50',  border: 'border-amber-200',  text: 'text-amber-700',  badge: 'bg-amber-100 text-amber-700' },
+    purple: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', badge: 'bg-purple-100 text-purple-700' },
+  };
+
+  document.getElementById('total-harta-display').textContent = formatRupiah(hartaInput);
+  document.getElementById('badge-total-ahli').textContent = `${hasil.length} Ahli Waris`;
+
+  const icons = { blue: '👔', green: '👨‍👩‍👧', pink: '👩', amber: '👨', purple: '🤝' };
+  const detail = document.getElementById('detailHasil');
+  detail.innerHTML = hasil.map(h => {
+    const c = colorMap[h.colorClass] || colorMap.blue;
+    const perOrang = hasil.length > 0 && h.label.match(/\((\d+) orang\)/)
+      ? parseInt(h.label.match(/\((\d+) orang\)/)[1])
+      : 1;
+    const pctTotal = (h.amount / hartaInput * 100).toFixed(1);
+    const perOrangText = perOrang > 1
+      ? `<span class="text-xs ${c.text}">(${formatRupiah(h.amount / perOrang)}/orang)</span>` : '';
+    return `
+      <div class="${c.bg} ${c.border} border rounded-2xl p-4 transition-all">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">${icons[h.colorClass] || '👤'}</span>
+            <span class="font-semibold text-gray-800 text-sm">${h.label}</span>
+          </div>
+          <span class="${c.badge} text-xs font-bold px-2.5 py-1 rounded-full">${h.fraksi}</span>
+        </div>
+        <div class="flex items-end justify-between">
+          <div>
+            <p class="font-heading text-lg font-bold ${c.text}">${formatRupiah(h.amount)}</p>
+            ${perOrangText}
+          </div>
+          <div class="text-right">
+            <div class="text-xs text-gray-400">${pctTotal}% dari harta</div>
+            <div class="w-24 h-1.5 bg-gray-200 rounded-full mt-1 overflow-hidden">
+              <div class="h-full rounded-full ${c.text.replace('text-', 'bg-')}" style="width:${Math.min(100,pctTotal)}%"></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // Sisa info
+  const infoSisa = document.getElementById('info-sisa');
+  if (sisa > 1) {
+    infoSisa.className = 'mt-4 p-3 rounded-xl text-xs font-medium bg-amber-50 border border-amber-200 text-amber-800';
+    infoSisa.innerHTML = `⚠️ <strong>Sisa harta: ${formatRupiah(sisa)}</strong> — Dikembalikan ke ahli waris secara proporsional (Rad) atau ke Baitul Mal.`;
+    infoSisa.classList.remove('hidden');
+  } else if (sisa < -1) {
+    infoSisa.className = 'mt-4 p-3 rounded-xl text-xs font-medium bg-red-50 border border-red-200 text-red-700';
+    infoSisa.innerHTML = `⚠️ Terjadi kekurangan — perlu dilakukan Aul (pengurangan proporsional semua bagian).`;
+    infoSisa.classList.remove('hidden');
+  } else {
+    infoSisa.classList.add('hidden');
+  }
+
+  // Dasar hukum
+  const dasarEl = document.getElementById('dasar-hukum-list');
+  dasarEl.innerHTML = [...dasarHukum].map(d => `
+    <div class="flex items-center gap-2 text-white/80 text-xs">
+      <span class="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center text-xs flex-shrink-0">✓</span>
+      ${d}
+    </div>`).join('');
+
+  document.getElementById('placeholder-waris').classList.add('hidden');
+  document.getElementById('hasilWarisPanel').classList.remove('hidden');
+  document.getElementById('dasar-hukum-card').classList.remove('hidden');
+
+  showToast('Perhitungan berhasil!', 'success');
+  document.getElementById('hasilWarisPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetKalkulator() {
+  document.getElementById('hartaWarisan').value = '';
+  document.getElementById('pasangan').value = 'tidak_ada';
+  document.getElementById('jumlahAnakLaki').value = 0;
+  document.getElementById('jumlahAnakPerempuan').value = 0;
+  document.getElementById('statusAyah').value = 'tidak_ada';
+  document.getElementById('statusIbu').value = 'tidak_ada';
+  document.getElementById('jumlahSaudaraLakiKandung').value = 0;
+  document.getElementById('jumlahSaudaraPerempuanKandung').value = 0;
+  document.getElementById('jumlahSaudaraLakiSeibu').value = 0;
+  document.getElementById('jumlahSaudaraPerempuanSeibu').value = 0;
+  if (document.getElementById('jumlahSaudaraLakiSeayah'))
+    document.getElementById('jumlahSaudaraLakiSeayah').value = 0;
+  if (document.getElementById('jumlahSaudaraPerempuanSeayah'))
+    document.getElementById('jumlahSaudaraPerempuanSeayah').value = 0;
+
+  document.getElementById('placeholder-waris').classList.remove('hidden');
+  document.getElementById('hasilWarisPanel').classList.add('hidden');
+  document.getElementById('info-sisa').classList.add('hidden');
+}
+
 // ==================== Boot ====================
 renderQuiz();
 lucide.createIcons();

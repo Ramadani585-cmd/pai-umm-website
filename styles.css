@@ -1,6 +1,34 @@
 /* ==================== Google Fonts ==================== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
+/* ==================== Colors ==================== */
+:root {
+  --color-primary: #1e40af;
+  --color-secondary: #3b82f6;
+  --color-accent: #0f172a;
+  --color-bg: #f9fafb;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  --primary: #0f5c30;
+  --primary-dark:   #0a3d20;
+  --primary-light:  #e8f5ee;
+  --secondary:      #d4a017;
+  --secondary-light:#fff8e1;
+  --text:           #1a2e1e;
+  --text-muted:     #5a7060;
+  --bg:             #fafdf8;
+  --bg-muted:       #f2f7f3;
+  --border:         #d0e0d4;
+  --white:          #ffffff;
+  --radius:         0.75rem;
+  --radius-lg:      1.25rem;
+  --shadow-sm:      0 1px 4px rgba(15,92,48,.08);
+  --shadow-md:      0 4px 16px rgba(15,92,48,.12);
+  --shadow-lg:      0 8px 32px rgba(15,92,48,.16);
+}
+
 /* ==================== Base ==================== */
 * { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; }
