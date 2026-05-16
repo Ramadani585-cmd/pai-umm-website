@@ -974,23 +974,41 @@
 
   <!-- ==================== Section 6: Evaluasi ==================== -->
   <section id="evaluasi" class="py-20 sm:py-28 bg-pai-50/30">
-    <div class="mt-10 obs" data-anim="anim-fade-up">
-      <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-        <div class="bg-gradient-to-r from-pai-700 to-pai-600 px-6 py-4 flex items-center gap-3">
-            <i data-lucide="file-text" style="width:20px;height:20px;color:white;"></i>
-            <h3 class="font-heading text-center text-white font-bold text-lg">Formulir Evaluasi</h3>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 obs" data-anim="anim-fade-up">
+        <span class="inline-block px-4 py-1 rounded-full bg-pai-100 text-pai-700 text-xs font-semibold uppercase tracking-wider mb-4">Evaluasi</span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-pai-900">Uji Pemahaman Anda</h2>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Jawab pertanyaan berikut untuk menguji pemahaman tentang materi Pendidikan Agama Islam</p>
+      </div>
+      <div class="max-w-2xl mx-auto">
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-gray-100">
+          <div id="quiz-progress" class="flex gap-2 mb-8"></div>
+          <div id="quiz-question" class="mb-6">
+            <h3 id="quiz-q-text" class="font-heading text-xl font-bold text-pai-900 mb-6"></h3>
+            <div id="quiz-options" class="space-y-3"></div>
           </div>
-          <iframe
-            src="https://forms.gle/ykG5frbms5zwKoD36"
-            width="100%"
-            height="600"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            style="border:none;">
-            Memuat…
-          </iframe>
+          <div id="quiz-feedback" class="hidden mb-4 p-4 rounded-xl text-sm font-medium"></div>
+          <div class="flex justify-between items-center mt-6">
+            <span id="quiz-score" class="text-sm text-gray-400"></span>
+            <button id="quiz-next" onclick="nextQuestion()"
+              class="px-6 py-2.5 bg-pai-600 text-white rounded-full font-semibold hover:bg-pai-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+              Selanjutnya <i data-lucide="chevron-right" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i>
+            </button>
+          </div>
         </div>
+
+        <!-- Quiz Result -->
+        <div id="quiz-result" class="hidden bg-white rounded-3xl p-10 shadow-lg border border-gray-100 text-center">
+          <div class="text-6xl mb-4">🏆</div>
+          <h3 class="font-heading text-2xl font-bold text-pai-900 mb-2">Evaluasi Selesai!</h3>
+          <p id="quiz-result-text" class="text-gray-600 text-lg mb-6"></p>
+          <button onclick="resetQuiz()" class="px-8 py-3 bg-pai-600 text-white rounded-full font-semibold hover:bg-pai-700 transition-all">
+            Ulangi Evaluasi
+          </button>
+        </div>
+
       </div>
     </div>
   </section>
